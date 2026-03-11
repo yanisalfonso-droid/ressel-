@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resell Tracker</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--bg:#0b0f14;
+--card:#121821;
+--border:#1f2a37;
+
+--accent:#3b82f6;
+--green:#22c55e;
+--red:#ef4444;
+
+--text:#f1f5f9;
+--muted:#94a3b8;
+
+--radius:14px;
+}
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Inter,system-ui;
+}
+
+body{
+background:var(--bg);
+color:var(--text);
+padding:20px;
+}
+
+/* header */
+
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:30px;
+}
+
+.logo{
+font-size:22px;
+font-weight:600;
+}
+
+.add-btn{
+background:var(--accent);
+border:none;
+padding:10px 16px;
+border-radius:10px;
+color:white;
+cursor:pointer;
+}
+
+/* stats */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:16px;
+margin-bottom:30px;
+}
+
+.card{
+background:var(--card);
+border:1px solid var(--border);
+padding:20px;
+border-radius:var(--radius);
+}
+
+.card-title{
+font-size:14px;
+color:var(--muted);
+margin-bottom:6px;
+}
+
+.card-value{
+font-size:22px;
+font-weight:600;
+}
+
+/* table */
+
+.table{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:var(--radius);
+overflow:hidden;
+}
+
+.row{
+display:grid;
+grid-template-columns:2fr 1fr 1fr 1fr;
+padding:16px;
+border-bottom:1px solid var(--border);
+}
+
+.row.header{
+font-size:13px;
+color:var(--muted);
+}
+
+.row:last-child{
+border-bottom:none;
+}
+
+.profit{
+color:var(--green);
+}
+
+.loss{
+color:var(--red);
+}
+
+/* nav */
+
+.nav{
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+
+background:#070b10;
+border-top:1px solid var(--border);
+
+display:flex;
+justify-content:space-around;
+padding:12px 0;
+}
+
+.nav button{
+background:none;
+border:none;
+color:var(--muted);
+font-size:14px;
+}
+
+.nav button.active{
+color:var(--accent);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+<div class="logo">Resell Tracker</div>
+<button class="add-btn">Ajouter</button>
+</div>
+
+<div class="stats">
+
+<div class="card">
+<div class="card-title">Achats</div>
+<div class="card-value">12</div>
+</div>
+
+<div class="card">
+<div class="card-title">Revenus</div>
+<div class="card-value">€820</div>
+</div>
+
+<div class="card">
+<div class="card-title">Profit</div>
+<div class="card-value profit">€210</div>
+</div>
+
+</div>
+
+<div class="table">
+
+<div class="row header">
+<div>Produit</div>
+<div>Achat</div>
+<div>Vente</div>
+<div>Profit</div>
+</div>
+
+<div class="row">
+<div>Nike Dunk</div>
+<div>120€</div>
+<div>180€</div>
+<div class="profit">+60€</div>
+</div>
+
+<div class="row">
+<div>PS5</div>
+<div>450€</div>
+<div>420€</div>
+<div class="loss">-30€</div>
+</div>
+
+</div>
+
+<div class="nav">
+<button class="active">Dashboard</button>
+<button>Produits</button>
+<button>Stats</button>
+<button>Paramètres</button>
+</div>
+
+</body>
+</html>
