@@ -1163,17 +1163,25 @@
      RESELL TRACKER — logique complète
   ═══════════════════════════════════════════════════════════ */
 
-  const LS_KEY = 'rt_items_v2';
-  let items  = load();
-  let filter = 'tous';
-  let search = '';
+  const LS_KEY = 'rt_items';
+let items  = load();
+let filter = 'tous';
+let search = '';
 
-  /* ── Persistance ──────────────────────────────────────── */
-  function load() {
-    try { return JSON.parse(localStorage.getItem(LS_KEY)) || []; }
-    catch { return []; }
-  }
-  function save() { localStorage.setItem(LS_KEY, JSON.stringify(items)); }
+function load() {
+  try {
+    const legacy  = localStorage.getItem('rt_items_v2');
+    const current = localStorage.getItem(LS_KEY);
+    if (legacy && !current) {
+      localStorage.setItem(LS_KEY, legacy);
+      localStorage.removeItem('rt_items_v2');
+      return JSON.parse(legacy) || [];
+    }
+    return JSON.parse(current) || [];
+  } catch { return []; }
+}
+function save() { localStorage.setItem(LS_KEY, JSON.stringify(items)); }
+
 
   /* ── Calculs ──────────────────────────────────────────── */
   function calcProfit(achat, vente, frais) {
